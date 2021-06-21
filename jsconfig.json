@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "strict": true,
     "checkJs": false,
     "resolveJsonModule": true,
     "moduleResolution": "node",

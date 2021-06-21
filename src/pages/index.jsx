@@ -1,5 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
+import { Button } from '@material-ui/core';
+import reduxWrapper from '@/store';
 
 export default function Home() {
   return (
@@ -13,6 +15,21 @@ export default function Home() {
       <h1>
         Welcome to <a href="https://nextjs.org">Next.js!</a>
       </h1>
+      <Button variant="contained" color="primary">
+        safad
+      </Button>
     </div>
   );
 }
+
+// export const getServerSideProps = reduxWrapper.getServerSideProps(
+//   (store) =>
+//     async ({ params }) => {
+//       console.log(store);
+//       return {
+//         props: {
+//           a: true,
+//         },
+//       };
+//     },
+// );
