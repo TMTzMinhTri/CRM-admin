@@ -1,3 +1,20 @@
 {
-  "extends": ["next", "next/core-web-vitals"]
+  "extends": [
+    "next",
+    "next/core-web-vitals",
+    "prettier",
+    "airbnb",
+    "airbnb/hooks"
+  ],
+  "plugins": ["react"],
+  "rules": {
+    "react/jsx-one-expression-per-line": "off",
+    "react/prop-types": [0],
+    "react/jsx-props-no-spreading": [0]
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  }
 }
