@@ -14,11 +14,11 @@
     "es6": true
   },
   "settings": {
-    "import/extensions": [".jsx", ".js"]
+    "import/extensions": [".js", ".jsx"]
   },
   "rules": {
     "react/jsx-one-expression-per-line": "off",
-    "react/prop-types": [0],
+    // "react/prop-types": [0],
     "react/jsx-props-no-spreading": [0],
     "import/no-unresolved": [0],
     "import/named": 2,
@@ -27,7 +27,8 @@
     "import/export": 2,
     "implicit-arrow-linebreak": "off",
     "object-curly-newline": 1,
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
+    "curly": ["error", "all"]
   },
   "parserOptions": {
     "ecmaFeatures": {

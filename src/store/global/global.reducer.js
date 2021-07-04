@@ -4,6 +4,7 @@ import { HYDRATE } from 'next-redux-wrapper';
 const initialState = {
   isMobile: false,
   isSidebarOpen: false,
+  currentUser: null,
 };
 
 const globalSlice = createSlice({
@@ -17,6 +18,10 @@ const globalSlice = createSlice({
     setSideBarOpen: (state) => ({
       ...state,
       isSidebarOpen: !state.isSidebarOpen,
+    }),
+    setCurrentUser: (state, action) => ({
+      ...state,
+      currentUser: action.payload,
     }),
   },
   extraReducers: {

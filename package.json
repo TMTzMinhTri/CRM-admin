@@ -1,9 +1,9 @@
 {
-  "name": "next-admin",
+  "name": "admin",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3001",
     "build": "next build",
     "start": "next start",
     "lint": "eslint --fix ./src",
@@ -16,6 +16,7 @@
     "@material-ui/lab": "^4.0.0-alpha.58",
     "@reduxjs/toolkit": "^1.6.0",
     "classnames": "^2.3.1",
+    "js-cookie": "^2.2.1",
     "lodash": "^4.17.21",
     "next": "11.0.0",
     "next-redux-wrapper": "^7.0.2",
@@ -30,6 +31,8 @@
   },
   "devDependencies": {
     "@types/dotenv": "^8.2.0",
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-styled-components": "^1.13.1",
     "eslint": "7.29.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-next": "11.0.0",
