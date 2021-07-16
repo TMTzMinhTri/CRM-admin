@@ -17,10 +17,11 @@ export default function Home() {
   );
 }
 
-// export const getServerSideProps = reduxWrapper.getServerSideProps((store) => {
-//   return function (ctx) {
-//     return doWithServerSide(ctx, () => {
-//       // console.log(ctx);
-//     });
-//   };
-// });
+export const getServerSideProps = reduxWrapper.getServerSideProps((store) => {
+  return function (ctx) {
+    // console.log(ctx);
+    //     return doWithServerSide(ctx, () => {
+    //       // console.log(ctx);
+    //     });
+  };
+});

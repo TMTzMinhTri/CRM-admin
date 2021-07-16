@@ -42,8 +42,8 @@ const useStyles = makeStyles((theme) => ({
     // marginRight: theme.spacing(2),
     // marginLeft: 0,
     // width: '100%',
-    display: 'none',
-    visibility: 'hidden',
+    // display: 'none',
+    // visibility: 'hidden',
     [theme.breakpoints.up('sm')]: {
       position: 'relative',
       borderRadius: theme.shape.borderRadius,

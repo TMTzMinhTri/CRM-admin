@@ -4,12 +4,13 @@ import { Drawer, Divider, List, ListItem, ListItemIcon, ListItemText } from '@ma
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import useStyles from './styles';
-import { useGlobalState, useToggleSidebar } from '@/store/global/global.hooks';
+import { useGlobalState, useSidebarStatus, useToggleSidebar } from '@/store/global/global.hooks';
 import { urls } from '@/ultilities';
 import Link from 'next/link';
 
 export default function Sidebar() {
-  const { isMobile, isSidebarOpen } = useGlobalState();
+  const { isMobile } = useGlobalState();
+  const isOpenSidebar = useSidebarStatus();
   const toggleSidebar = useToggleSidebar();
 
   const classes = useStyles();
@@ -17,20 +18,20 @@ export default function Sidebar() {
     { label: 'home', path: urls.home },
     { label: 'nguoi muon', path: urls.listClients },
   ];
-  
+
   return (
     <Drawer
       variant={isMobile ? 'temporary' : 'permanent'}
-      open={isSidebarOpen}
+      open={isOpenSidebar}
       onClose={toggleSidebar}
       className={clsx(classes.drawer, {
-        [classes.drawerOpen]: isSidebarOpen,
-        [classes.drawerClose]: !isSidebarOpen,
+        [classes.drawerOpen]: isOpenSidebar,
+        [classes.drawerClose]: !isOpenSidebar,
       })}
       classes={{
         paper: clsx({
-          [classes.drawerOpen]: isSidebarOpen,
-          [classes.drawerClose]: !isSidebarOpen,
+          [classes.drawerOpen]: isOpenSidebar,
+          [classes.drawerClose]: !isOpenSidebar,
         }),
       }}>
       <div className={classes.toolbar}></div>

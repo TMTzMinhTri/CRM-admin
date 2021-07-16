@@ -2,16 +2,18 @@ import React, { Fragment, useMemo } from 'react';
 import { MuiThemeProvider, CssBaseline } from '@material-ui/core';
 import App from 'next/app';
 import Cookies from 'js-cookie';
+import { useRouter } from 'next/router';
 
 import reduxWrapper from '@/store';
 import themes from '@/themes';
 import { checkMobileServerSide, detectDevice } from '@/ultilities';
 import { setIsMobile, setCurrentUser } from '@/store/global/global.actions';
-import Layout from '@/components/Layout';
-import AuthApi from '@/Api/auth';
+import { Layout } from '@/components';
+// import AuthApi from '@/Api/auth';
 
 function MyApp({ Component, pageProps }) {
   const type = 'ád';
+  const router = useRouter();
 
   React.useEffect(() => {
     Cookies.set('access_token', 'M5fyNn4a-qb2Nh7X3WoL');
@@ -19,12 +21,20 @@ function MyApp({ Component, pageProps }) {
     if (jssStyles) {
       jssStyles.parentElement.removeChild(jssStyles);
     }
+    const handleRouteChange = (url, { shallow }) => {
+      console.log(`App is changing to ${url} ${shallow ? 'with' : 'without'} shallow routing`);
+    };
+    router.events.on('routeChangeStart', handleRouteChange);
+    return () => router.events.on('routeChangeStart', handleRouteChange);
   }, []);
 
   const page = useMemo(() => {
     const PageLayout = Component.Layout || Fragment;
     return (
-      <Layout hideSidebar={Component.hideSidebar} hideHeader={Component.hideHeader}>
+      <Layout
+        hideSidebar={Component.hideSidebar}
+        hideHeader={Component.hideHeader}
+        hideBottomNav={Component.hideBottomNav}>
         <PageLayout>
           <Component {...pageProps}></Component>
         </PageLayout>
@@ -33,7 +43,7 @@ function MyApp({ Component, pageProps }) {
   }, [Component, pageProps]);
 
   return (
-    <MuiThemeProvider theme={themes(type === 'light' ? 1 : 0)}>
+    <MuiThemeProvider theme={themes(0)}>
       <CssBaseline />
       {page}
     </MuiThemeProvider>
