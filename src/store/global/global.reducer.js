@@ -5,19 +5,23 @@ const initialState = {
   isMobile: false,
   isSidebarOpen: false,
   currentUser: null,
+  theme: 0,
 };
 
 const globalSlice = createSlice({
   name: 'global',
   initialState,
   reducers: {
+    updateGlobalState: (state, action) => {
+      const { key, value } = action.payload;
+      return {
+        ...state,
+        [key]: value,
+      };
+    },
     setIsMobile: (state, action) => ({
       ...state,
       isMobile: action.payload,
-    }),
-    setSideBarOpen: (state) => ({
-      ...state,
-      isSidebarOpen: !state.isSidebarOpen,
     }),
     setCurrentUser: (state, action) => ({
       ...state,

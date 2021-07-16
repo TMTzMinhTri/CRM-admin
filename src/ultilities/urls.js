@@ -1,7 +1,7 @@
 const urls = {
   home: '/',
-  login: '/dang-nhap',
-  listClients: '/danh-sach-nguoi-muon',
+  login: '/login',
+  table: '/table',
 };
 
 export default urls;

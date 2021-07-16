@@ -16,7 +16,8 @@ export default function Sidebar() {
   const classes = useStyles();
   const menus = [
     { label: 'home', path: urls.home },
-    { label: 'nguoi muon', path: urls.listClients },
+    { label: 'table', path: urls.table },
+    { label: 'login', path: urls.login },
   ];
 
   return (

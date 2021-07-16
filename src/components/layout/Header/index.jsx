@@ -2,21 +2,29 @@ import React from 'react';
 import { AppBar, IconButton, Toolbar, Typography, Menu, MenuItem } from '@material-ui/core';
 import clsx from 'clsx';
 import useStyles from './styles';
-import { useGlobalState, useSidebarStatus, useToggleSidebar } from '@/store/global/global.hooks';
+import {
+  useGlobalState,
+  useSidebarStatus,
+  useToggleSidebar,
+  useToggleTheme,
+} from '@/store/global/global.hooks';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import Badge from '@material-ui/core/Badge';
 import InputBase from '@material-ui/core/InputBase';
+import { ToggleTheme } from '@/components';
 
 export default function Header() {
   const isOpenSidebar = useSidebarStatus();
   const { isMobile } = useGlobalState();
   const toggleSidebar = useToggleSidebar();
+  const toggleTheme = useToggleTheme();
+
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const isMenuOpen = Boolean(anchorEl);
-  
+
   const handleMenuClose = () => {
     setAnchorEl(null);
   };
@@ -73,6 +81,7 @@ export default function Header() {
             />
           </div>
         </div>
+        <ToggleTheme onClick={toggleTheme} />
         <div className={classes.sectionDesktop}>
           <IconButton aria-label="show 17 new notifications" color="inherit">
             <Badge badgeContent={17} color="secondary">

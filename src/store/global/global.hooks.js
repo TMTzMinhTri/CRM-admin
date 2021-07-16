@@ -1,5 +1,5 @@
 import { useAppAction, useAppSelector } from '../hooks';
-import { toggleSidebar } from './global.actions';
+import { toggleSidebar, toggleTheme } from './global.actions';
 
 export const useGlobalState = () => useAppSelector((state) => state.global);
 
@@ -10,5 +10,7 @@ export const useSidebarStatus = () =>
   });
 
 export const useDetectMobile = () => useAppSelector((state) => state.global.isMobile);
+
+export const useToggleTheme = () => useAppAction(toggleTheme);
 
 export const useToggleSidebar = () => useAppAction(toggleSidebar);
